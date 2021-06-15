@@ -1,0 +1,9 @@
+#!/bin/bash
+awk -F" " '{print $1,$2,$3,$4}' "$1"_Dealer_schedule | grep "$2" | grep "$3" > "$1"_"$2""$3"_blackjack_dealer.txt
+awk -F" " '{print $1,$2,$5,$6}' "$1"_Dealer_schedule | grep "$2" | grep "$3" > "$1"_"$2""$3"_roulette_dealer.txt
+awk -F" " '{print $1,$2,$5,$6}' "$1"_Dealer_schedule | grep "$2" | grep "$3" > "$1"_"$2""$3"_txholdem_dealer.txt
+echo blackjack dealer >> "$1"_"$2""$3"_blackjack_dealer.txt
+echo roulette dealer >> "$1"_"$2""$3"_roulette_dealer.txt
+echo texas hold em dealer >> "$1"_"$2""$3"_txholdem_dealer.txt
+cat "$1"_"$2""$3"_blackjack_dealer.txt "$1"_"$2""$3"_roulette_dealer.txt "$1"_"$2""$3"_txholdem_dealer.txt
+
